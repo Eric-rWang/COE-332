@@ -20,7 +20,7 @@ def rand_head():
 
 # returns random body type using petname library
 def rand_body():
-	return 'random_body'
+	return petname.generate(words=2, separator='-', letters=6)
 
 # returns random number of arms
 def rand_arms():
