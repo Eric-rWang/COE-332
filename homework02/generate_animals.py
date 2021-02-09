@@ -1,9 +1,12 @@
+#!/usr/bin/env python3
+
 # ERIC WANG (erw825)
 # generating random animals and writing to json
 
 import json
 import petname
 import random
+import sys
 
 # dictionary for head types
 head = {
@@ -37,23 +40,24 @@ def num_tails(arms, legs):
 data = {}
 data['animals'] = []
 
-# generating 20 animals
-for animals in range(20):
-	arms, legs = rand_arms(), rand_legs()
-	data['animals'].append({
-		'head': rand_head(),
-		'body': rand_body(),
-		'arms': arms,
-		'legs': legs,
-		'tails': num_tails(arms, legs)
-	})
+def main():
+	# generating 20 animals
+	for animals in range(20):
+		arms, legs = rand_arms(), rand_legs()
+		data['animals'].append({
+			'head': rand_head(),
+			'body': rand_body(),
+			'arms': arms,
+			'legs': legs,
+			'tails': num_tails(arms, legs)
+		})
 
-# opening/creating file to write to
-with open('animals.json', 'w') as out:
-	json.dump(data, out, indent = 2)
+	# opening/creating file to write to
+	with open('animals.json', 'w') as out:
+		json.dump(data, out, indent = 2)
 
-
-
+if __name__ == '__main':
+	main()
 
 
 
