@@ -3,7 +3,7 @@ import json
 import random
 import sys
 
-def breed(animals, f):
+def breed(animals):
 	rand_animal1 = random.randint(0, len(animals['animals']) - 1)
 	rand_animal2 = random.randint(0, len(animals['animals']) - 1)
 
@@ -21,10 +21,6 @@ def breed(animals, f):
 		'tails': tails
 	}
 
-	temp = animals['animals']
-	temp.append(child)
-	json.dump(temp, f, indent = 2)
-	
 	print('Parents:')
 	print(json.dumps(animals['animals'][rand_animal1], indent = 2))
 	print(json.dumps(animals['animals'][rand_animal2], indent = 2))
@@ -37,7 +33,7 @@ def main():
 		rand_animal = random.randint(0, len(animals['animals']) - 1)
 		print(json.dumps(animals['animals'][rand_animal], indent = 2))
 
-		breed(animals, f)
+		breed(animals)
 
 if __name__ == '__main__':
 	main()
