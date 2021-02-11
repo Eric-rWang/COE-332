@@ -28,7 +28,7 @@ def breed(animals):
 	print(json.dumps(child, indent = 2))
 
 def main():
-	with open (sys.argv[1], 'r+') as f:
+	with open (sys.argv[1], 'r') as f:
 		animals = json.load(f)
 		rand_animal = random.randint(0, len(animals['animals']) - 1)
 		print(json.dumps(animals['animals'][rand_animal], indent = 2))
