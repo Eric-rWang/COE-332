@@ -53,7 +53,7 @@ def main():
 		})
 
 	# opening/creating file to write to
-	with open('animals.json', 'w') as out:
+	with open(sys.argv[1], 'w') as out:
 		json.dump(data, out, indent = 2)
 
 if __name__ == '__main':
