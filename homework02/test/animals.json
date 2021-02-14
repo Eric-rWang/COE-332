@@ -1,0 +1,144 @@
+{
+  "animals": [
+    {
+      "head": "bull",
+      "body": "civet-swine",
+      "arms": 2,
+      "legs": 3,
+      "tails": 5
+    },
+    {
+      "head": "bull",
+      "body": "cow-goat",
+      "arms": 4,
+      "legs": 6,
+      "tails": 10
+    },
+    {
+      "head": "bull",
+      "body": "lemur-bug",
+      "arms": 4,
+      "legs": 6,
+      "tails": 10
+    },
+    {
+      "head": "bunny",
+      "body": "deer-clam",
+      "arms": 8,
+      "legs": 9,
+      "tails": 17
+    },
+    {
+      "head": "raven",
+      "body": "tiger-squid",
+      "arms": 8,
+      "legs": 3,
+      "tails": 11
+    },
+    {
+      "head": "raven",
+      "body": "ghost-colt",
+      "arms": 2,
+      "legs": 3,
+      "tails": 5
+    },
+    {
+      "head": "bull",
+      "body": "yak-kitten",
+      "arms": 4,
+      "legs": 6,
+      "tails": 10
+    },
+    {
+      "head": "snake",
+      "body": "elf-hornet",
+      "arms": 2,
+      "legs": 3,
+      "tails": 5
+    },
+    {
+      "head": "lion",
+      "body": "possum-dove",
+      "arms": 6,
+      "legs": 3,
+      "tails": 9
+    },
+    {
+      "head": "bunny",
+      "body": "boar-orca",
+      "arms": 6,
+      "legs": 9,
+      "tails": 15
+    },
+    {
+      "head": "raven",
+      "body": "pony-ghost",
+      "arms": 10,
+      "legs": 9,
+      "tails": 19
+    },
+    {
+      "head": "raven",
+      "body": "donkey-cub",
+      "arms": 10,
+      "legs": 3,
+      "tails": 13
+    },
+    {
+      "head": "raven",
+      "body": "turtle-imp",
+      "arms": 4,
+      "legs": 6,
+      "tails": 10
+    },
+    {
+      "head": "bunny",
+      "body": "akita-kiwi",
+      "arms": 6,
+      "legs": 6,
+      "tails": 12
+    },
+    {
+      "head": "bunny",
+      "body": "badger-ray",
+      "arms": 6,
+      "legs": 9,
+      "tails": 15
+    },
+    {
+      "head": "snake",
+      "body": "coral-dragon",
+      "arms": 2,
+      "legs": 6,
+      "tails": 8
+    },
+    {
+      "head": "raven",
+      "body": "pika-seal",
+      "arms": 8,
+      "legs": 12,
+      "tails": 20
+    },
+    {
+      "head": "snake",
+      "body": "sponge-tuna",
+      "arms": 4,
+      "legs": 9,
+      "tails": 13
+    },
+    {
+      "head": "bull",
+      "body": "panda-bass",
+      "arms": 10,
+      "legs": 9,
+      "tails": 19
+    },
+    {
+      "head": "lion",
+      "body": "troll-clam",
+      "arms": 2,
+      "legs": 9,
+      "tails": 11
+    }
+  ]
+}

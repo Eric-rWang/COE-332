@@ -56,7 +56,7 @@ def main():
 	with open(sys.argv[1], 'w') as out:
 		json.dump(data, out, indent = 2)
 
-if __name__ == '__main':
+if __name__ == '__main__':
 	main()
 
 

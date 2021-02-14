@@ -4,7 +4,7 @@ import random
 import sys
 
 def child_body(parent1, parent2):
-	return parent1[0] + '-' + parent2[1]
+	return str(parent1).split('-')[0] + '-' + str(parent2).split('-')[0]
 
 def child_arms(parent1, parent2):
 	return (parent1 + parent2) // 2
@@ -20,18 +20,19 @@ def breed(parent1, parent2):
 	p1 = json.loads(parent1)
 	p2 = json.loads(parent2)
 
+	body1 = p1['body']
+	body2 = p2['body']
+
 	arms = child_arms(p1['arms'], p2['arms'])
 	legs = child_legs(p1['legs'], p2['legs'])
 	
 	child = {
 		'head': p1['head'],
-		'body': child_body(p1['body'].split('-'), p2['body'].split('-')),
+		'body': child_body(body1, body2),
 		'arms': arms,
 		'legs': legs,
 		'tails': child_tails(arms, legs)
 	}
-
-	print(child_body(p1, p2))
 
 	print('Parents:')
 	print(parent1)
