@@ -4,16 +4,28 @@ import random
 import sys
 
 def child_body(parent1, parent2):
-	return str(parent1).split('-')[0] + '-' + str(parent2).split('-')[1]
+	if len(parent1) != 0 and len(parent2) != 0:
+		return str(parent1).split('-')[0] + '-' + str(parent2).split('-')[1]
+	else:
+		raise IndexError('list index out of range')
 
 def child_arms(parent1, parent2):
-	return (parent1 + parent2) // 2
+	if type(parent1) is int and type(parent2) is int:
+		return (parent1 + parent2) // 2
+	else:
+		raise TypeError('variable not int')
 
 def child_legs(parent1, parent2):
-	return (parent1 + parent2) // 2
+	if type(parent1) is int and type(parent2) is int:
+		return (parent1 + parent2) // 2	
+	else:
+		raise TypeError('variable not int')
 
 def child_tails(arms, legs):
-	return arms + legs
+	if type(arms) is int and type(legs) is int:
+		return arms + legs
+	else:
+		raise TypeError('variable not int')
 
 def breed(parent1, parent2):
 
