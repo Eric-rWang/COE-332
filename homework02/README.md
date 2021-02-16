@@ -16,3 +16,7 @@ read-animals.py has the following functions:
 * breed(parent1, parent2): Uses the functions above and creates a animal child json
 
 test_read-animals.py tests the functions stated above in read-animals.py
+
+## Setup
+### How to download and run scripts directly
+$ git clone git@github.com:Eric-rWang/COE-332.git
