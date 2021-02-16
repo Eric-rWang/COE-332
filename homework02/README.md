@@ -9,16 +9,26 @@ Animals Json-Parser can generate random animal json files  with generate_animals
 
 ## Functions
 read-animals.py has the following functions:
-* child_body(parent1, parent2): Combines the parent's body properties
-* child_arms(parent1, parent2): Adds and uses floor division to get number of arms
-* child_legs(parent1, parent2): Adds and uses floor division to get number of legs
-* child_tails(arms, legs): Adds the arms and legs to get number of tails
-* breed(parent1, parent2): Uses the functions above and creates a animal child json
+* child_body(parent1, parent2): Combines the parent's body properties.
+* child_arms(parent1, parent2): Adds and uses floor division to get number of arms.
+* child_legs(parent1, parent2): Adds and uses floor division to get number of legs.
+* child_tails(arms, legs): Adds the arms and legs to get number of tails.
+* breed(parent1, parent2): Uses the functions above and creates a animal child json.
 
-test_read-animals.py tests the functions stated above in read-animals.py
+test_read-animals.py tests the functions stated above in read-animals.py.
 
 ## Setup
 ### How to download and run scripts directly
+Before downloading make sure to have python3 installed as well as the petname library installed.
 ```
 $ git clone git@github.com:Eric-rWang/COE-332.git
+$ cd COE-332/homework02/
+$ pip install petname
 ```
+To run the scripts generate_animals.py, read_animals.py and test_read_animals.py run the following lines of code.
+```
+$ python3 generate_animals.py animals.json
+$ python3 read_animals.py animals.json
+$ python3 test_read_animals.py
+```
+animals.json can be renamed to another fitting json file name. generate_animals.py and read_animals.py both require a json file as a second input.
