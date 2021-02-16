@@ -39,7 +39,7 @@ Inside the homework02 folder run the following commands in terminal. Remember to
 ```
 $ docker build -t dockerhubusername/json-parser:1.5 .
 ```
-In order to run the scripts inside the container execute the following.
+In order to run the scripts inside the container execute the following.  
 Run generate_animals.py (will generate a json file):
 ```
 docker run --rm -v $PWD:/data -u $(id -u):$(id -g) dockerhubusername/json-parser:1.5 generate_animals.py /data/animals.json
