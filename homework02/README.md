@@ -9,8 +9,8 @@ Animals Json-Parser can generate random animal json files  with generate_animals
 
 ## Functions
 read-animals.py has the following functions:
-* child_body(parent1, parent2):
-* child_arms(parent1, parent2):
-* child_legs(parent1, parent2):
-* child_tails(arms, legs):
-* breed(parent1, parent2):
+* child_body(parent1, parent2): Combines the parent's body properties
+* child_arms(parent1, parent2): Adds and uses floor division to get number of arms
+* child_legs(parent1, parent2): Adds and uses floor division to get number of legs
+* child_tails(arms, legs): Adds the arms and legs to get number of tails
+* breed(parent1, parent2): Uses the functions above and creates a animal child json
