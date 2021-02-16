@@ -21,7 +21,7 @@ test_read-animals.py tests the functions stated above in read-animals.py.
 ### How to download and run scripts directly
 Before downloading make sure to have python3 installed as well as the petname library installed.
 ```
-$ git clone git@github.com:Eric-rWang/COE-332.git
+$ git clone https://github.com/Eric-rWang/COE-332.git
 $ cd COE-332/homework02/
 $ pip install petname
 ```
