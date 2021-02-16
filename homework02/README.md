@@ -25,10 +25,40 @@ $ git clone git@github.com:Eric-rWang/COE-332.git
 $ cd COE-332/homework02/
 $ pip install petname
 ```
-To run the scripts generate_animals.py, read_animals.py and test_read_animals.py run the following lines of code.
+To run the scripts generate_animals.py, read_animals.py and test_read_animals.py run the following lines of code respectively.
 ```
 $ python3 generate_animals.py animals.json
 $ python3 read_animals.py animals.json
 $ python3 test_read_animals.py
 ```
-animals.json can be renamed to another fitting json file name. generate_animals.py and read_animals.py both require a json file as a second input.
+animals.json can be renamed to more fitting json file name. generate_animals.py and read_animals.py both require a json file as a second input.
+
+### How to build an image with Docker
+Make sure to have docker installed before building the image.
+Inside the homework02 folder run the following commands in terminal. Remember to replace dockerhubusername with personal docker username.
+```
+$ docker build -t dockerhubusername/json-parser:1.5 .
+```
+In order to run the scripts inside the container execute the following.
+Run generate_animals.py (will generate a json file):
+```
+docker run --rm -v $PWD:/data -u $(id -u):$(id -g) dockerhubusername/json-parser:1.5 generate_animals.py /data/animals.json
+```
+Run read_animals.py:
+```
+docker run --rm -v $PWD:/data -u $(id -u):$(id -g) dockerhubusername/json-parser:1.5 read_animals.py /data/animals.json
+```
+Run test_read_animals.py (unit tests for read_animals.py):
+```
+docker run --rm -v $PWD:/data -u $(id -u):$(id -g) dockerhubusername/json-parser:1.5 test_read_animals.py
+```
+
+
+
+
+
+
+
+
+
+
