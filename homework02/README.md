@@ -46,11 +46,11 @@ docker run --rm -v $PWD:/data -u $(id -u):$(id -g) dockerhubusername/json-parser
 ```
 Run read_animals.py:
 ```
-docker run --rm -v $PWD:/data -u $(id -u):$(id -g) dockerhubusername/json-parser:1.6 read_animals.py /data/animals.json
+$ docker run --rm -v $PWD:/data -u $(id -u):$(id -g) dockerhubusername/json-parser:1.6 read_animals.py /data/animals.json
 ```
 Run test_read_animals.py (unit tests for read_animals.py):
 ```
-docker run --rm -v $PWD:/data -u $(id -u):$(id -g) dockerhubusername/json-parser:1.6 test_read_animals.py
+$ docker run --rm -v $PWD:/data -u $(id -u):$(id -g) dockerhubusername/json-parser:1.6 test_read_animals.py
 ```
 ### Pull from Docker
 Before pulling from Docker, make sure to have Docker installed.
@@ -65,15 +65,15 @@ $ docker images
 In order to run the scripts inside the container execute the following.  
 Run generate_animals.py (will generate a json file):
 ```
-docker run --rm -v $PWD:/data -u $(id -u):$(id -g) cobcannon123/json-parser:1.6 generate_animals.py /data/animals.json
+$ docker run --rm -v $PWD:/data -u $(id -u):$(id -g) cobcannon123/json-parser:1.6 generate_animals.py /data/animals.json
 ```
 Run read_animals.py:
 ```
-docker run --rm -v $PWD:/data -u $(id -u):$(id -g) cobcannon123/json-parser:1.6 read_animals.py /data/animals.json
+$ docker run --rm -v $PWD:/data -u $(id -u):$(id -g) cobcannon123/json-parser:1.6 read_animals.py /data/animals.json
 ```
 Run test_read_animals.py (unit tests for read_animals.py):
 ```
-docker run --rm -v $PWD:/data -u $(id -u):$(id -g) cobcannon123/json-parser:1.6 test_read_animals.py
+$ docker run --rm -v $PWD:/data -u $(id -u):$(id -g) cobcannon123/json-parser:1.6 test_read_animals.py
 ```
 
 
