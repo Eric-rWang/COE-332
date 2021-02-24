@@ -52,6 +52,8 @@ Run test_read_animals.py (unit tests for read_animals.py):
 ```
 docker run --rm -v $PWD:/data -u $(id -u):$(id -g) dockerhubusername/json-parser:1.5 test_read_animals.py
 ```
+Lastly, you can visit my docker page here...
+https://hub.docker.com/repository/docker/cobcannon123/json-parser
 
 
 
