@@ -49,6 +49,8 @@ def breed(parent1, parent2):
 	print('Child:')
 	print(json.dumps(child, indent = 2))
 
+	return child
+
 def main():
 	with open (sys.argv[1], 'r') as f:
 		animals = json.load(f)

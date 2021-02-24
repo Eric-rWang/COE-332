@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 import unittest
+import json
 from read_animals import child_body
 from read_animals import child_arms
 from read_animals import child_legs
 from read_animals import child_tails
+from read_animals import breed
 
 class TestJsonParser(unittest.TestCase):
 
@@ -34,6 +36,40 @@ class TestJsonParser(unittest.TestCase):
 		self.assertRaises(TypeError, child_tails, '', '')
 		self.assertRaises(TypeError, child_tails, True, '')
 
+	def test_breed(self):
+		parent1 = {
+				'head': 'snake',
+				'body': 'rodent-thrush',
+				'arms': 6,
+				'legs': 9,
+				'tails': 15
+		}
+
+		parent2 = {
+				'head': 'raven',
+				'body': 'mantis-cow',
+				'arms': 2,
+				'legs': 3,
+				'tails': 5
+		}
+
+		child = {
+				'head': 'snake',
+				'body': 'rodent-cow',
+				'arms': 4,
+				'legs': 6,
+				'tails': 10
+		}
+
+		self.assertEqual(breed(json.dumps(parent1), json.dumps(parent2)), child)
 
 if __name__ == '__main__':
 	unittest.main()
+
+
+
+
+
+
+
+
