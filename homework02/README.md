@@ -37,24 +37,44 @@ animals.json can be renamed to more fitting json file name. generate_animals.py 
 Make sure to have docker installed before building the image.
 Inside the homework02 folder run the following commands in terminal. Remember to replace dockerhubusername with personal docker username.
 ```
-$ docker build -t dockerhubusername/json-parser:1.5 .
+$ docker build -t dockerhubusername/json-parser:1.6 .
 ```
 In order to run the scripts inside the container execute the following.  
 Run generate_animals.py (will generate a json file):
 ```
-docker run --rm -v $PWD:/data -u $(id -u):$(id -g) dockerhubusername/json-parser:1.5 generate_animals.py /data/animals.json
+docker run --rm -v $PWD:/data -u $(id -u):$(id -g) dockerhubusername/json-parser:1.6 generate_animals.py /data/animals.json
 ```
 Run read_animals.py:
 ```
-docker run --rm -v $PWD:/data -u $(id -u):$(id -g) dockerhubusername/json-parser:1.5 read_animals.py /data/animals.json
+docker run --rm -v $PWD:/data -u $(id -u):$(id -g) dockerhubusername/json-parser:1.6 read_animals.py /data/animals.json
 ```
 Run test_read_animals.py (unit tests for read_animals.py):
 ```
-docker run --rm -v $PWD:/data -u $(id -u):$(id -g) dockerhubusername/json-parser:1.5 test_read_animals.py
+docker run --rm -v $PWD:/data -u $(id -u):$(id -g) dockerhubusername/json-parser:1.6 test_read_animals.py
 ```
-Lastly, you can visit my docker page here...
-https://hub.docker.com/repository/docker/cobcannon123/json-parser
-
+### Pull from Docker
+Before pulling from Docker, make sure to have Docker installed.
+To pull the image from Docker...
+```
+$ docker pull cobcannon123/json-parser
+```
+Run the following command and make sure cobcannon123/json-parser appears.
+```
+$ docker images
+```
+In order to run the scripts inside the container execute the following.  
+Run generate_animals.py (will generate a json file):
+```
+docker run --rm -v $PWD:/data -u $(id -u):$(id -g) cobcannon123/json-parser:1.6 generate_animals.py /data/animals.json
+```
+Run read_animals.py:
+```
+docker run --rm -v $PWD:/data -u $(id -u):$(id -g) cobcannon123/json-parser:1.6 read_animals.py /data/animals.json
+```
+Run test_read_animals.py (unit tests for read_animals.py):
+```
+docker run --rm -v $PWD:/data -u $(id -u):$(id -g) cobcannon123/json-parser:1.6 test_read_animals.py
+```
 
 
 
