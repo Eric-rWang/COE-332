@@ -7,7 +7,12 @@ app = Flask(__name__)
 def hello_world():
 	return "Hello world\n"
 
-@app.route('/specific', methods=['GET'])
+@app.route('/countAnimals', methods=['GET'])
+def get_animals_count():
+	animal_data = get_data()
+	return str(len(animal_data['animals'])) + '\n'
+
+@app.route('/specificAnimals', methods=['GET'])
 def get_specific():
 	head = request.args.get('head')
 	body = request.args.get('body')
