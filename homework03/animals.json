@@ -1,0 +1,144 @@
+{
+  "animals": [
+    {
+      "head": "bunny",
+      "body": "hound-troll",
+      "arms": 4,
+      "legs": 12,
+      "tails": 16
+    },
+    {
+      "head": "raven",
+      "body": "gull-snail",
+      "arms": 10,
+      "legs": 3,
+      "tails": 13
+    },
+    {
+      "head": "raven",
+      "body": "ghoul-gecko",
+      "arms": 10,
+      "legs": 6,
+      "tails": 16
+    },
+    {
+      "head": "bull",
+      "body": "moth-grub",
+      "arms": 6,
+      "legs": 12,
+      "tails": 18
+    },
+    {
+      "head": "snake",
+      "body": "tetra-doe",
+      "arms": 4,
+      "legs": 9,
+      "tails": 13
+    },
+    {
+      "head": "bunny",
+      "body": "toad-iguana",
+      "arms": 10,
+      "legs": 3,
+      "tails": 13
+    },
+    {
+      "head": "bunny",
+      "body": "boar-dog",
+      "arms": 10,
+      "legs": 12,
+      "tails": 22
+    },
+    {
+      "head": "bunny",
+      "body": "fowl-macaw",
+      "arms": 4,
+      "legs": 9,
+      "tails": 13
+    },
+    {
+      "head": "bull",
+      "body": "alien-dove",
+      "arms": 6,
+      "legs": 3,
+      "tails": 9
+    },
+    {
+      "head": "bunny",
+      "body": "mayfly-tapir",
+      "arms": 4,
+      "legs": 9,
+      "tails": 13
+    },
+    {
+      "head": "lion",
+      "body": "kiwi-robin",
+      "arms": 6,
+      "legs": 12,
+      "tails": 18
+    },
+    {
+      "head": "bull",
+      "body": "pony-shad",
+      "arms": 6,
+      "legs": 3,
+      "tails": 9
+    },
+    {
+      "head": "snake",
+      "body": "lamb-sheep",
+      "arms": 10,
+      "legs": 6,
+      "tails": 16
+    },
+    {
+      "head": "lion",
+      "body": "louse-boa",
+      "arms": 10,
+      "legs": 12,
+      "tails": 22
+    },
+    {
+      "head": "bull",
+      "body": "cobra-alien",
+      "arms": 4,
+      "legs": 6,
+      "tails": 10
+    },
+    {
+      "head": "lion",
+      "body": "bass-donkey",
+      "arms": 2,
+      "legs": 12,
+      "tails": 14
+    },
+    {
+      "head": "raven",
+      "body": "bass-frog",
+      "arms": 8,
+      "legs": 3,
+      "tails": 11
+    },
+    {
+      "head": "bull",
+      "body": "koala-crane",
+      "arms": 6,
+      "legs": 3,
+      "tails": 9
+    },
+    {
+      "head": "bull",
+      "body": "monkey-crow",
+      "arms": 8,
+      "legs": 12,
+      "tails": 20
+    },
+    {
+      "head": "raven",
+      "body": "pigeon-boa",
+      "arms": 8,
+      "legs": 6,
+      "tails": 14
+    }
+  ]
+}

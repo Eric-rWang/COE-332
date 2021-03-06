@@ -13,10 +13,10 @@ def get_specific():
 
 @app.route('/animals', methods=['GET'])
 def get_animals():
-	return json.dumps(get_data())
+	return json.dumps(get_data(), indent = 2)
 
 def get_data():
-	with open('animals.json', '-r') as json_file:
+	with open('animals.json', 'r') as json_file:
 		userdata = json.load(json_file)
 	return userdata
 
