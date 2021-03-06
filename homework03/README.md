@@ -1,4 +1,4 @@
-# Animal Json-Parser
+# Animal Json-Parser with Flask
 ## Table of contents
 * [General info](#general-info)
 * [Functions](#functions)
