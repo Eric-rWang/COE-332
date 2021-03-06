@@ -35,27 +35,27 @@ def get_specific_animals(head, body, arms, legs, tails):
 	
 	if head is not None:
 		for i in range(len(animal_data['animals'])):
-			if animal_data['animals'][i]['head'] == head:
+			if str(animal_data['animals'][i]['head']) == str(head):
 				result['animals'].append(animal_data['animals'][i])
 
 	if body is not None:
 		for i in reversed(range(len(result['animals']))):
-			if result['animals'][i]['body'] != body:
+			if str(result['animals'][i]['body']) != str(body):
 				del result['animals'][i]
 
 	if arms is not None:
 		for i in reversed(range(len(result['animals']))):
-			if result['animals'][i]['arms'] != arms:
+			if str(result['animals'][i]['arms']) != str(arms):
 				del result['animals'][i]
 
 	if legs is not None:
 		for i in reversed(range(len(result['animals']))):
-			if result['animals'][i]['legs'] != legs:
+			if str(result['animals'][i]['legs']) != str(legs):
 				del result['animals'][i]
 
 	if tails is not None:
 		for i in reversed(range(len(result['animals']))):
-			if result['animals'][i]['tails'] != tails:
+			if str(result['animals'][i]['tails']) != str(tails):
 				del result['animals'][i]
 
 	return result
