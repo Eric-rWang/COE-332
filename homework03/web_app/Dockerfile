@@ -10,7 +10,7 @@ COPY . /app
 WORKDIR /app
 
 RUN pip3 install petname==2.6
-RUN pip3 install -r requirements.txt
+RUN pip3 install Flask-Cors requests
 
 ENTRYPOINT ["python3"]
 CMD ["app.py"]
