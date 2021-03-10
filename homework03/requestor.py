@@ -1,6 +1,7 @@
 import requests
 import json
 
+# 5000 should be 5036 on isp2
 response1 = requests.get(url="http://localhost:5000/countAnimals")
 response2 = requests.get(url="http://localhost:5000/specificAnimals?head=bunny")
 response3 = requests.get(url="http://localhost:5000/animals")
