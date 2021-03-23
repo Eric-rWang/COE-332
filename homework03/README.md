@@ -42,6 +42,7 @@ animals.json can be renamed to more fitting json file name. generate_animals.py 
 * /buildAnimal/random (generates a random animal)
 * /specificAnimals?head=" "&body=" "&arms=" "&legs=" "&tails=" " (optional aditional query parameters)
 * /buildAnimal?head=" "&body=" "&arms=" "&legs=" "&tails=" " (query parameters required)
+
 These routes can be found in the requestor file for the consumer. 
 
 
