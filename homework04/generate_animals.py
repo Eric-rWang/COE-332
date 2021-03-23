@@ -3,10 +3,7 @@
 # ERIC WANG (erw825)
 # generating random animals and writing to json
 
-import json
-import petname
-import random
-import sys
+import json, petname, random, sys, uuid, datetime
 
 # dictionary for head types
 head = {
@@ -37,14 +34,15 @@ def rand_legs():
 def num_tails(arms, legs):
 	return arms + legs
 
-data = {}
-data['animals'] = []
+data = {"animals":[]}
 
 def main():
 	# generating 20 animals
-	for animals in range(20):
+	for animals in range(100):
 		arms, legs = rand_arms(), rand_legs()
 		data['animals'].append({
+			'uid': str(uuid.uuid4()),
+			'timestamp': str(datetime.datetime.now()),
 			'head': rand_head(),
 			'body': rand_body(),
 			'arms': arms,

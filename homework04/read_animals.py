@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-import json
-import random
-import sys
+import json, random, sys, uuid, datetime
 
 def child_body(parent1, parent2):
 	if len(parent1) != 0 and len(parent2) != 0:
@@ -39,6 +37,8 @@ def breed(parent1, parent2):
 	legs = child_legs(p1['legs'], p2['legs'])
 	
 	child = {
+		'uid': str(uuid.uuid4()),
+		'timestamp': str(datetime.datetime.now()), 
 		'head': p1['head'],
 		'body': child_body(body1, body2),
 		'arms': arms,
