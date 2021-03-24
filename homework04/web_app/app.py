@@ -1,4 +1,4 @@
-import json, petname, random
+import json, petname, random, datetime
 from flask import Flask, request
 
 app = Flask(__name__)
@@ -11,10 +11,24 @@ def hello_world():
 # querys dates
 @app.route('/dates', methods=['GET'])
 def query_date():
-	start_date = request.args.get('start')
-	end_date = request.args.get('end')
-	
-	return 'h\n'
+	s = request.args.get('start').split('-')
+	e = request.args.get('end').split('-')
+	start_date = datetime.datetime(int(s[0]), int(s[1]), int(s[2]))
+	end_date = datetime.datetime(int(e[0]), int(e[1]), int(e[2]))
+
+	animal_data = get_data()
+	query_animal = {"animals":[]}
+
+	for i in range(len(animal_data['animals'])):
+		date_temp = str(animal_data['animals'][i]['timestamp']).split()[0].split('-')
+		date_animal = datetime.datetime(int(date_temp[0]), int(date_temp[1]), int(date_temp[2]))
+		if date_animal >= start_date and date_animal <= end_date:
+			query_animal["animals"].append(animal_data['animals'][i])
+
+	with open('animals_query.json', 'w') as out:
+		json.dump(query_animal, out, indent = 2)
+
+	return query_animal
 
 # gets specific animal
 @app.route('/select', methods=['GET'])
