@@ -42,7 +42,7 @@ def main():
 		arms, legs = rand_arms(), rand_legs()
 		data['animals'].append({
 			'uid': str(uuid.uuid4()),
-			'timestamp': str(datetime.datetime.now()),
+			'created_on': str(datetime.datetime.now()),
 			'head': rand_head(),
 			'body': rand_body(),
 			'arms': arms,

@@ -20,7 +20,7 @@ def query_date():
 	query_animal = {"animals":[]}
 
 	for i in range(len(animal_data['animals'])):
-		date_temp = str(animal_data['animals'][i]['timestamp']).split()[0].split('-')
+		date_temp = str(animal_data['animals'][i]['created_on']).split()[0].split('-')
 		date_animal = datetime.datetime(int(date_temp[0]), int(date_temp[1]), int(date_temp[2]))
 		if date_animal >= start_date and date_animal <= end_date:
 			query_animal["animals"].append(animal_data['animals'][i])
@@ -73,6 +73,48 @@ def update_animal():
 			return animal_data['animals'][i]
 			
 	return 'Not updated\n'
+
+# deletes animals within given date range
+@app.route('/delete', methods=['GET'])
+def delete_range():
+	s = request.args.get('start').split('-')
+	e = request.args.get('end').split('-')
+	start_date = datetime.datetime(int(s[0]), int(s[1]), int(s[2]))
+	end_date = datetime.datetime(int(e[0]), int(e[1]), int(e[2]))
+
+	animal_data = get_data()
+	animal_range = {"animals":[]}
+
+	for i in range(len(animal_data['animals'])):
+		date_temp = str(animal_data['animals'][i]['created_on']).split()[0].split('-')
+		date_animal = datetime.datetime(int(date_temp[0]), int(date_temp[1]), int(date_temp[2]))
+		if date_animal < start_date or date_animal > end_date:
+			animal_range['animals'].append(animal_data['animals'][i])
+
+	with open('animals.json', 'w') as out:
+		json.dump(animal_range, out, indent = 2)
+
+	return animal_range
+
+# returns the average number of legs per animal
+@app.route('/average_legs', methods=['GET'])
+def average_legs():
+	animal_data = get_data()
+	total_animals = len(animal_data['animals'])
+	legs = 0
+
+	for i in range(len(animal_data['animals'])):
+		legs += int(animal_data['animals'][i]['legs'])
+
+	avg_legs = legs / total_animals
+
+	return str(avg_legs) + '\n'
+
+# returns total count of animals
+@app.route('/total_animals', methods=['GET'])
+def total_animals():
+	animal_data = get_data()
+	return str(len(animal_data['animals'])) + '\n'
 
 # returns useable data
 def get_data():
