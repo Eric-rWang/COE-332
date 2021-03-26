@@ -3,7 +3,7 @@
 # ERIC WANG (erw825)
 # generating random animals and writing to json
 
-import json, petname, random, sys, uuid, datetime
+import json, petname, random, sys, uuid, datetime, redis
 
 # dictionary for head types
 head = {
@@ -49,6 +49,9 @@ def main():
 			'legs': legs,
 			'tails': num_tails(arms, legs)
 		})
+
+	rd = redis.StrictRedis(host='127.0.0.1', port=6379, db=0)
+	rd.set('animals', json.dumps(data))
 
 	# opening/creating file to write to
 	with open(sys.argv[1], 'w') as out:
