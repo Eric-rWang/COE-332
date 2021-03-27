@@ -1,4 +1,4 @@
-import json, petname, random, datetime, redis
+import json, petname, random, datetime, redis, uuid
 from flask import Flask, request
 
 app = Flask(__name__)
@@ -128,6 +128,60 @@ def total_animals():
 	animal_data = get_data()
 	return str(len(animal_data['animals'])) + '\n'
 
+@app.route('/reset', methods=['GET'])
+def reset():
+	with open("animals.json", 'r') as json_file:
+		userdata = json.load(json_file)
+
+	rd.set('animals', json.dumps(userdata, indent = 2))
+	
+'''
+@app.route('/create', methods=['GET'])
+def create():
+	animal_data = get_data()
+
+	for animals in range(100):
+		arms, legs = rand_arms(), rand_legs()
+		animal_data['animals'].append({
+			'uid': str(uuid.uuid4()),
+			'created_on': str(datetime.datetime.now()),
+			'head': rand_head(),
+			'body': rand_body(),
+			'arms': arms,
+			'legs': legs,
+			'tails': num_tails(arms, legs)
+		})
+
+# dictionary for head types
+head = {
+	0: 'snake', 
+	1: 'bull', 
+	2: 'lion', 
+	3: 'raven', 
+	4: 'bunny'
+}
+
+# returns random head type
+def rand_head():
+	return head[random.randint(0, 4)]
+
+# returns random body type using petname library
+def rand_body():
+	return petname.name() + "-" + petname.name()
+
+# returns random number of arms
+def rand_arms():
+	return random.randrange(2, 11, 2)
+
+# returns random number of legs
+def rand_legs():
+	return random.randrange(3, 13, 3)
+
+# returns arms + legs for number of tails
+def num_tails(arms, legs):
+	return arms + legs
+'''
+
 # returns useable data
 def get_data():
 	userdata = json.loads(rd.get('animals').decode('utf-8'))
@@ -136,7 +190,7 @@ def get_data():
 	return userdata
 
 if __name__ == '__main__':
-	rd = redis.StrictRedis(host='127.0.0.1', port=6379, db=0)
+	rd = redis.StrictRedis(host='redis', port=6379, db=0)
 	app.run(debug=True, host='0.0.0.0')
 
 
