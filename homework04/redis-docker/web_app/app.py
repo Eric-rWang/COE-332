@@ -34,7 +34,7 @@ def query_date():
 	#with open('animals_query.json', 'w') as out:
 	#	json.dump(query_animal, out, indent = 2)
 
-	rd.set('query_animal', json.dumps(query_animal, indent = 2))
+	#rd.set('query_animal', json.dumps(query_animal, indent = 2))
 
 	return query_animal
 
