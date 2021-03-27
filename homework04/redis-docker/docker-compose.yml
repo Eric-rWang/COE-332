@@ -6,7 +6,7 @@ services:
         ports:
             - 5000:5000
         volumes:
-            - .:/code
+            - ./data/data_file.json:/datafile.json
         depends_on:
             - redis
     redis:

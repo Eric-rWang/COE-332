@@ -6,7 +6,7 @@ app = Flask(__name__)
 # test 
 @app.route('/helloworld', methods=['GET'])
 def hello_world():
-	return 'Hello world\n'
+	return 'Hello world 1\n'
 
 # returns all animals
 @app.route('/all_animals', methods=['GET'])
