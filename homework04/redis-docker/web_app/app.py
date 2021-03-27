@@ -134,6 +134,8 @@ def reset():
 		userdata = json.load(json_file)
 
 	rd.set('animals', json.dumps(userdata, indent = 2))
+
+	return 'Reset!'
 	
 '''
 @app.route('/create', methods=['GET'])
