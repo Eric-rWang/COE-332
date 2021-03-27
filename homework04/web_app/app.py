@@ -1,4 +1,4 @@
-import json, petname, random, datetime
+import json, petname, random, datetime, redis
 from flask import Flask, request
 
 app = Flask(__name__)
@@ -7,6 +7,12 @@ app = Flask(__name__)
 @app.route('/helloworld', methods=['GET'])
 def hello_world():
 	return 'Hello world\n'
+
+# returns all animals
+@app.route('/all_animals', methods=['GET'])
+def print_animals():
+	animal_data = get_data()
+	return animal_data
 
 # querys dates
 @app.route('/dates', methods=['GET'])
@@ -25,8 +31,10 @@ def query_date():
 		if date_animal >= start_date and date_animal <= end_date:
 			query_animal["animals"].append(animal_data['animals'][i])
 
-	with open('animals_query.json', 'w') as out:
-		json.dump(query_animal, out, indent = 2)
+	#with open('animals_query.json', 'w') as out:
+	#	json.dump(query_animal, out, indent = 2)
+
+	rd.set('query_animal', json.dumps(query_animal, indent = 2))
 
 	return query_animal
 
@@ -67,8 +75,10 @@ def update_animal():
 			if tails is not None:
 				animal_data['animals'][i]['tails'] = tails
 
-			with open('animals.json', 'w') as out:
-				json.dump(animal_data, out, indent = 2)
+			rd.set('animals', json.dumps(animal_data, indent = 2))
+
+			#with open('animals.json', 'w') as out:
+			#	json.dump(animal_data, out, indent = 2)
 
 			return animal_data['animals'][i]
 			
@@ -91,8 +101,10 @@ def delete_range():
 		if date_animal < start_date or date_animal > end_date:
 			animal_range['animals'].append(animal_data['animals'][i])
 
-	with open('animals.json', 'w') as out:
-		json.dump(animal_range, out, indent = 2)
+	#with open('animals.json', 'w') as out:
+	#	json.dump(animal_range, out, indent = 2)
+
+	rd.set('animals', json.dumps(animal_range, indent = 2))
 
 	return animal_range
 
@@ -118,13 +130,13 @@ def total_animals():
 
 # returns useable data
 def get_data():
-	with open("animals.json", 'r') as json_file:
-		userdata = json.load(json_file)
+	userdata = json.loads(rd.get('animals').decode('utf-8'))
+	#with open("animals.json", 'r') as json_file:
+	#	userdata = json.load(json_file)
 	return userdata
 
-
-
 if __name__ == '__main__':
+	rd = redis.StrictRedis(host='127.0.0.1', port=6379, db=0)
 	app.run(debug=True, host='0.0.0.0')
 
 
