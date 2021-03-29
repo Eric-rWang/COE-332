@@ -130,14 +130,25 @@ def total_animals():
 
 @app.route('/reset', methods=['GET'])
 def reset():
-	with open("animals.json", 'r') as json_file:
-		userdata = json.load(json_file)
+	animal_data = {"animals":[]}
 
-	rd.set('animals', json.dumps(userdata, indent = 2))
+	for animals in range(100):
+		arms, legs = rand_arms(), rand_legs()
+		animal_data['animals'].append({
+			'uid': str(uuid.uuid4()),
+			'created_on': str(datetime.datetime.now()),
+			'head': rand_head(),
+			'body': rand_body(),
+			'arms': arms,
+			'legs': legs,
+			'tails': num_tails(arms, legs)
+		})
+
+
+	rd.set('animals', json.dumps(animal_data, indent = 2))
 
 	return 'Reset!'
 	
-'''
 @app.route('/create', methods=['GET'])
 def create():
 	animal_data = get_data()
@@ -153,6 +164,10 @@ def create():
 			'legs': legs,
 			'tails': num_tails(arms, legs)
 		})
+
+	rd.set('animals', json.dumps(animal_data, indent = 2))
+
+	return 'Created!'
 
 # dictionary for head types
 head = {
@@ -182,7 +197,6 @@ def rand_legs():
 # returns arms + legs for number of tails
 def num_tails(arms, legs):
 	return arms + legs
-'''
 
 # returns useable data
 def get_data():
