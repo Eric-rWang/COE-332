@@ -4,7 +4,7 @@ services:
         build: ./web_app
         container_name: main_web
         ports:
-            - 5000:5000
+            - 5036:5000
         volumes:
             - ./data/data_file.json:/datafile.json
         depends_on:
@@ -12,7 +12,7 @@ services:
     redis:
         image: redis:latest
         ports:
-            - 6379:6379
+            - 6416:6379
         volumes:
             - ./config/redis.conf:/redis.conf
         command: [ "redis-server", "/redis.conf" ]
