@@ -147,7 +147,7 @@ def reset():
 
 	rd.set('animals', json.dumps(animal_data, indent = 2))
 
-	return 'Reset!'
+	return 'Reset!\n'
 	
 @app.route('/create', methods=['GET'])
 def create():
@@ -167,7 +167,7 @@ def create():
 
 	rd.set('animals', json.dumps(animal_data, indent = 2))
 
-	return 'Created!'
+	return 'Created!\n'
 
 # dictionary for head types
 head = {
