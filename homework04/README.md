@@ -21,7 +21,7 @@ $ cd COE-332/homework04/redis-docker
 ```
 Before starting docker-compose, make sure to build it to ensure it is up to date.
 ```
-$ docker-compose build
+$ docker-compose build --no-cashe
 ```
 To run the app, run the following.
 ```
