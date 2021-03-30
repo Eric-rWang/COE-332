@@ -2,7 +2,7 @@ version: '3'
 services:
     web:
         build: ./web_app
-        container_name: main_web_eric
+        container_name: main_web
         ports:
             - 5036:5000
         volumes:
