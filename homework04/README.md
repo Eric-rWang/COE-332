@@ -1,5 +1,5 @@
 # Animal Json-Parser with Flask, Redis and Docker-Compose
-## Table of contents
+## Table of Contents
 * [General info](#general-info)
 * [Setup](#setup)
 * [Flask](#flask)
