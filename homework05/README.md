@@ -26,4 +26,5 @@ Hello,
 To delete the pod, the command below is used.
 ```
 $ kubectl delete pods hello
+pod "hello" deleted
 ```
