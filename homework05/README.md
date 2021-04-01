@@ -21,7 +21,7 @@ hello     1/1       Running    0		 	 6m30s
 Checking the logs of the pod, the output is what is expected.
 ```
 $ kubectl logs hello
-Hello, Eric
+Hello,
 ```
 To delete the pod, the command below is used.
 ```
