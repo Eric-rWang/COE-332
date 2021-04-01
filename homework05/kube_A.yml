@@ -12,4 +12,4 @@ spec:
       env:
       - name: NAME
         value: "Eric"
-      command: ['sh', '-c', 'echo "Hello, $NAME" && sleep 3600']
+      command: ['sh', '-c', 'echo "Hello, $(NAME)" && sleep 3600']
