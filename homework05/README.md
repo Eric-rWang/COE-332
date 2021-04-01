@@ -1,4 +1,4 @@
-# Homework 05
+# Using Kubernetes
 ## Table of Contents
 * [Part A](#part-a)
 * [Part B](#part-b)
