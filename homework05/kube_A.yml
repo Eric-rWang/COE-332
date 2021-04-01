@@ -9,4 +9,7 @@ spec:
   containers:
     - name: hello
       image: ubuntu:18.04
+      env:
+      - name: NAME
+        value: "Eric"
       command: ['sh', '-c', 'echo "Hello, $NAME" && sleep 3600']
