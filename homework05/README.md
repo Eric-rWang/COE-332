@@ -30,3 +30,37 @@ pod "hello" deleted
 ```
 
 ## Part B
+Command to create the pod.
+```
+$ kubectl apply -f kube_B.yml
+```
+Command used to check the logs of the pod and its output.
+```
+$ kubectl logs hello
+Hello, Eric Wang
+```
+To delete the pod, the command below is used.
+```
+$ kubectl delete pods hello
+pod "hello" deleted
+```
+
+## Part C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
