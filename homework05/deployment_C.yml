@@ -22,7 +22,7 @@ spec:
           - name: NAME
             value: "Eric Wang"
           - name: POD_IP
-            valueForm:
+            valueFrom:
               fieldRef:
                 fieldPath: status.podIP
           command: ['sh', '-c', 'echo "Hello, $(NAME) from IP $(POD_IP)" && sleep 3600']
