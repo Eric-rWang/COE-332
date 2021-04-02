@@ -4,7 +4,7 @@ kind: Pod
 metadata:
   name: hello
   labels:
-    greeting: "personalized"
+    greeting: personalized
 spec:
   containers:
     - name: hello

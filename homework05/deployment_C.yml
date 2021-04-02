@@ -16,11 +16,11 @@ spec:
         greeting: personalized
     spec:
       containers:
-        - name: hello
+        - name: hellos
           image: ubuntu:18.04
           env:
           - name: NAME
-            value: "Eric Wang"
+            value: Eric Wang
           - name: POD_IP
             valueForm:
               fieldRef:
