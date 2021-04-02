@@ -46,7 +46,31 @@ pod "hello" deleted
 ```
 
 ## Part C
-
+Command used to create the deployment.
+```
+$ kubectl apply -f deployment_C.yml
+```
+To get the IP address of the pods use the following command.
+```
+$ kubectl get pods -o wide
+NAME                                 READY   STATUS    RESTARTS   AGE     IP             NODE   NOMINATED NODE   READINESS GATES
+hello-deployment-c-bd689f9c9-pz7cs   1/1     Running   0          4m57s   10.244.3.230   c01    <none>           <none>
+hello-deployment-c-bd689f9c9-sswjn   1/1     Running   0          4m57s   10.244.5.83    c04    <none>           <none>
+hello-deployment-c-bd689f9c9-trn4z   1/1     Running   0          4m57s   10.244.6.114   c03    <none>           <none>
+```
+Checking the logs of each of the pods, it reveals the IP address is the same as output shown above.
+```
+$ kubectl logs hello-deployment-c-bd689f9c9-pz7cs
+Hello, Eric Wang from IP 10.244.3.230
+```
+```
+$ kubectl logs hello-deployment-c-bd689f9c9-sswjn
+Hello, Eric Wang from IP 10.244.5.83
+```
+```
+$ kubectl logs hello-deployment-c-bd689f9c9-trn4z
+Hello, Eric Wang from IP 10.244.6.114
+```
 
 
 
