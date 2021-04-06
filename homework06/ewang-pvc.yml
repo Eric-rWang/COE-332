@@ -9,7 +9,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: rdb
+  storageClassName: rbd
   resources:
     requests:
       storage: 1Gi
