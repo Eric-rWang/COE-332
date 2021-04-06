@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: ewang-flask
-          imagePullPolicy: readWriteOnce
+          imagePullPolicy: Always
           image: ewang/hello-flask
           env:
           - name: FLASK_APP
