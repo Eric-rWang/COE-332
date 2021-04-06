@@ -21,7 +21,7 @@ spec:
         - name: ewang-flask
           imagePullPolicy: Always
           image: redis:5.0.0
-          volumeMouts:
+          volumeMounts:
           - name: ewang-pvc-data
             mountPath: "/data"
       volumes:
