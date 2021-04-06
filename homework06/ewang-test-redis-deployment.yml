@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ewang-test
+  labels:
+    username: ewang
+    env: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      username: ewang
+      env: test
+  template:
+    metadata:
+      labels:
+        username: ewang
+        env: test
+    spec:
+      containers:
+        - name: ewang-flask
+          imagePullPolicy: readWriteOnce
+          image: ewang/hello-flask
+          env:
+          - name: FLASK_APP
+            value: "app.py"
+          ports:
+          - name: http
+            containerPort: 5000
