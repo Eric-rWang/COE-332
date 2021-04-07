@@ -101,7 +101,7 @@ pod "ewang-test-deployment-9f89b9c68-9g2fs" deleted
 Running kubectl get pods, it is seen that k8s creates a new redis pod and inside the debug container, running
 rd.get('key') returns 'test' showing the data infact survived the pod restart.
 
-## Step 4
+## Part 4
 Creating a deployment for the flask API, the Redis deployment can be carried over with minor changes.
 * Using the same username and env labels as before
 * 2 replicas instead of 1
@@ -111,7 +111,7 @@ $ kubectl apply -f ewang-test-flask-deployment.yml
 deployment.apps/ewang-test-flask-deployment created
 ```
 
-## Step 5
+## Part 5
 Next, creating the service for flask API requires the following.
 * Using the same username and env labels as before
 * The type of service is ClusterIP
