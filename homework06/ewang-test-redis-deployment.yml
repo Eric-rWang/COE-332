@@ -2,11 +2,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ewang-test-deployment
+  name: ewang-test-redis-deployment
   labels:
+    app: ewang-test-redis
     username: ewang
     env: test
-    app: ewang-test-redis
 spec:
   replicas: 1
   selector:
@@ -20,7 +20,7 @@ spec:
         env: test
     spec:
       containers:
-        - name: ewang-flask-redis
+        - name: hello-redis
           imagePullPolicy: Always
           image: redis:5.0.0
           volumeMounts:

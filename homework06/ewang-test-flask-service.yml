@@ -11,6 +11,6 @@ spec:
   selector:
     app: ewang-test-flask
   ports:
-  - name: ewang-test-flask
+  - name: hello-flask-service
     port: 5000
     targetPort: 5000

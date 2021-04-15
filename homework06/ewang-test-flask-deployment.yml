@@ -4,9 +4,9 @@ kind: Deployment
 metadata:
   name: ewang-test-flask-deployment
   labels:
+    app: ewang-test-flask
     username: ewang
     env: test
-    app: ewang-test-flask
 spec:
   replicas: 2
   selector:
@@ -20,7 +20,7 @@ spec:
         env: test
     spec:
       containers:
-        - name: ewang-flask
+        - name: hello-flask
           imagePullPolicy: Always
           image: cobcannon123/kube-animals
           env:
