@@ -22,7 +22,7 @@ spec:
       containers:
         - name: ewang-flask
           imagePullPolicy: Always
-          image: cobcannon123/json-parser
+          image: cobcannon123/kube-animals
           env:
           - name: FLASK_APP
             value: "app.py"
