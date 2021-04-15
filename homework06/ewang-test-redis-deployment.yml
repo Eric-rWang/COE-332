@@ -16,9 +16,11 @@ spec:
     metadata:
       labels:
         app: ewang-test-redis
+        username: ewang
+        env: test
     spec:
       containers:
-        - name: ewang-flask
+        - name: ewang-flask-redis
           imagePullPolicy: Always
           image: redis:5.0.0
           volumeMounts:
