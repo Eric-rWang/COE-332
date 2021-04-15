@@ -21,8 +21,8 @@ spec:
     spec:
       containers:
         - name: hello-flask
-          imagePullPolicy: Never
           image: cobcannon123/kube-animals:1.0
+          imagePullPolicy: Always
           env:
           - name: FLASK_APP
             value: "app.py"
