@@ -1,8 +1,8 @@
 # jobs.py
 
-import uuid
+import uuid, redis
+
 from hotqueue import HotQueue
-from redis import StrictRedis
 
 q = HotQueue("queue", host='10.99.12.229', port=6379, db=1)
 rd = redis.StrictRedis(host='10.99.12.229', port=6379, db=0)
