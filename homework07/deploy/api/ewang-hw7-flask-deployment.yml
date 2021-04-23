@@ -20,7 +20,7 @@ spec:
         env: hw7
     spec:
       containers:
-        - name: hello-flask
+        - name: ewang-hw7-flask
           imagePullPolicy: Always
           image: cobcannon123/ewang-hw7:latest
           command: ["python3", "api.py"]
