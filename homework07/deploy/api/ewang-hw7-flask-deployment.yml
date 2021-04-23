@@ -21,8 +21,9 @@ spec:
     spec:
       containers:
         - name: hello-flask
-          image: cobcannon123/ewang-hw7:latest
           imagePullPolicy: Always
+          image: cobcannon123/ewang-hw7:latest
+          command: ["python3", "api.py"]
           env:
           - name: FLASK_APP
             value: "api.py"
