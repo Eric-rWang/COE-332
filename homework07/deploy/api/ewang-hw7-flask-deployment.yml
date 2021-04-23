@@ -8,7 +8,7 @@ metadata:
     username: ewang
     env: hw7
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: ewang-hw7-flask
