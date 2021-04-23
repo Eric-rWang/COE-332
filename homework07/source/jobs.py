@@ -41,7 +41,7 @@ def add_job(start, end, status="submitted"):
     # update call to save_job:
     _save_job(_generate_job_key(jid), job_dict)
     # update call to queue_job:
-    queue_job(jid)
+    _queue_job(jid)
     return job_dict
 
 def update_job_status(jid, new_status):
