@@ -24,5 +24,9 @@ spec:
           command: ["python3", "worker.py"]
           #command: ["sleep", "9999999999"]
           env:
+            - name: WORKER_IP
+              valueForm:
+                fieldRef:
+                  fieldPath: status.podIP
             - name: REDIS_IP
               value: 10.99.12.229

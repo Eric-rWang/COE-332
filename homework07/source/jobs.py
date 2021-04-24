@@ -1,6 +1,6 @@
 # jobs.py
 
-import uuid, redis
+import uuid, redis, os
 
 from hotqueue import HotQueue
 
@@ -18,12 +18,14 @@ def _instantiate_job(jid, status, start, end):
         return {'id': jid,
                 'status': status,
                 'start': start,
-                'end': end
+                'end': end,
+                'pod_ip': os.enviorn.get('WORKER_IP')
         }
     return {'id': jid.decode('utf-8'),
             'status': status.decode('utf-8'),
             'start': start.decode('utf-8'),
-            'end': end.decode('utf-8')
+            'end': end.decode('utf-8'),
+            'pod_ip': end.decode('utf-8')
     }
 
 def _save_job(job_key, job_dict):
