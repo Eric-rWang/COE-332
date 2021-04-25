@@ -6,6 +6,7 @@ from hotqueue import HotQueue
 
 q = HotQueue("queue", host='10.99.12.229', port=6379, db=1)
 rd = redis.StrictRedis(host='10.99.12.229', port=6379, db=0)
+#worker_ip = os.environ.get('WORKER_IP')
 
 def _generate_jid():
     return str(uuid.uuid4())
@@ -13,7 +14,7 @@ def _generate_jid():
 def _generate_job_key(jid):
     return 'job.{}'.format(jid)
 
-def _instantiate_job(jid, status, start, end, worker_ip='none'):
+def _instantiate_job(jid, status, start, end, worker_ip='not_set'):
     if type(jid) == str:
         return {'id': jid,
                 'status': status,
