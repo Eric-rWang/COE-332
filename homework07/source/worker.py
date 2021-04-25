@@ -1,5 +1,5 @@
 # worker.py
-
+import time
 from jobs import q, update_job_status
 
 @q.worker
