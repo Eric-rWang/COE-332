@@ -6,7 +6,7 @@ from hotqueue import HotQueue
 
 q = HotQueue("queue", host='10.99.12.229', port=6379, db=1)
 rd = redis.StrictRedis(host='10.99.12.229', port=6379, db=0)
-#worker_ip = os.environ.get('WORKER_IP')
+worker_ip = os.environ.get('WORKER_IP')
 
 def _generate_jid():
     return str(uuid.uuid4())
@@ -14,13 +14,13 @@ def _generate_jid():
 def _generate_job_key(jid):
     return 'job.{}'.format(jid)
 
-def _instantiate_job(jid, status, start, end, worker_ip='not_set'):
+def _instantiate_job(jid, status, start, end, pod_ip='not_set'):
     if type(jid) == str:
         return {'id': jid,
                 'status': status,
                 'start': start,
                 'end': end,
-                'pod_ip': worker_ip
+                'pod_ip': pod_ip
         }
     return {'id': jid.decode('utf-8'),
             'status': status.decode('utf-8'),
@@ -53,11 +53,11 @@ def update_job_status(jid, new_status):
 
     # if it is in progess, assign worker ip, else do not, just read it from database.
     if new_status == 'in progress':
-        worker_ip = os.environ.get('WORKER_IP')
+        pod_ip = worker_ip
     else:
-        worker_ip = rd.hmget(jid, 'worker_ip')
+        pod_ip = rd.hmget(jid, 'worker_ip')
 
-    job = _instantiate_job(jid, status, start, end, worker_ip)
+    job = _instantiate_job(jid, status, start, end, pod_ip)
     if job:
         job['status'] = new_status
         _save_job(_generate_job_key(job['id']), job)
