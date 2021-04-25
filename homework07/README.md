@@ -14,10 +14,19 @@ $ kubectl apply -f ewang-hw7-worker-deployment.yml
 deployment.apps/ewang-hw7-worker-deployment created
 ```
 
-To make a POST request with curl...
+To make a POST request with curl and the expected output.
 ```
-$ curl -X POST -H "content-type: application/json" -d '{"key2": ["a", "json", "list"]}' 10.244.5.83/jobs
+$ curl -X POST -H "content-type: application/json" -d '{"start":"1", "end":"2"}' 10.244.15.71:5000/jobs
+{"id": "3924d089-e8d5-42ee-8ceb-cec5b413f81f", "status": "submitted", "start": "1", "end": "2"}
+```
 
+To check that the job went to completion...
+```
+>>> from jobs import *
+>>> rd.keys()
+[b'job.3924d089-e8d5-42ee-8ceb-cec5b413f81f']
+>>> rd.hgetall('job.3924d089-e8d5-42ee-8ceb-cec5b413f81f')
+{"id": "3924d089-e8d5-42ee-8ceb-cec5b413f81f", "status": "complete", "start": "1", "end": "2"}
 ```
 
 ## Part C

@@ -13,13 +13,13 @@ def _generate_jid():
 def _generate_job_key(jid):
     return 'job.{}'.format(jid)
 
-def _instantiate_job(jid, status, start, end):
+def _instantiate_job(jid, status, start, end, worker_ip='none'):
     if type(jid) == str:
         return {'id': jid,
                 'status': status,
                 'start': start,
                 'end': end,
-                'pod_ip': os.enviorn.get('WORKER_IP')
+                'pod_ip': worker_ip
         }
     return {'id': jid.decode('utf-8'),
             'status': status.decode('utf-8'),
@@ -49,7 +49,14 @@ def add_job(start, end, status="submitted"):
 def update_job_status(jid, new_status):
     """Update the status of job with job id `jid` to status `status`."""
     jid, status, start, end = rd.hmget(_generate_job_key(jid), 'id', 'status', 'start', 'end')
-    job = _instantiate_job(jid, status, start, end)
+
+    # if it is in progess, assign worker ip, else do not, just read it from database.
+    if new_status == 'in progress':
+        worker_ip = os.environ.get('WORKER_IP')
+    else:
+        worker_ip = rd.hmget(jid, 'worker_ip')
+
+    job = _instantiate_job(jid, status, start, end, worker_ip)
     if job:
         job['status'] = new_status
         _save_job(_generate_job_key(job['id']), job)
