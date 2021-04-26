@@ -34,7 +34,7 @@ $ kubectl scale deployment ewang-hw7-worker-deployment --replicas=2
 ```
 To create 10 new jobs, the curl command from part A can be used 10 times.
 ```
-$ curl -X POST -H "content-type: application/json" -d '{"start":"1", "end":"2"}' 10.244.15.71:5000/jobs
+$ curl -X POST -H "content-type: application/json" -d '{"start":"1", "end":"2"}' 10.244.15.30:5000/jobs
 ```
 To check the IP of the pods, exec into a k8 pod and run python.
 ```

@@ -26,7 +26,7 @@ def _instantiate_job(jid, status, start, end, pod_ip='not_set'):
             'status': status.decode('utf-8'),
             'start': start.decode('utf-8'),
             'end': end.decode('utf-8'),
-            'pod_ip': end.decode('utf-8')
+            'pod_ip': pod_ip.decode('utf-8')
     }
 
 def _save_job(job_key, job_dict):
