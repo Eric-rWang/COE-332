@@ -54,7 +54,7 @@ def update_job_status(jid, new_status):
     # if it is in progess, assign worker ip, else do not, just read it from database.
     if new_status == 'in progress':
         pod_ip = worker_ip
-    else if new_status == 'complete':
+    elif new_status == 'complete':
         pod_ip = rd.hmget(jid, 'pod_ip')
 
     job = _instantiate_job(jid, status, start, end, pod_ip)
