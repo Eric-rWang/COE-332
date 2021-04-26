@@ -25,7 +25,7 @@ spec:
           #command: ["sleep", "9999999999"]
           env:
             - name: WORKER_IP
-              valueForm:
+              valueFrom:
                 fieldRef:
                   fieldPath: status.podIP
             - name: REDIS_IP
