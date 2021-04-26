@@ -14,7 +14,7 @@ def _generate_jid():
 def _generate_job_key(jid):
     return 'job.{}'.format(jid)
 
-def _instantiate_job(jid, status, start, end, pod_ip='not_set'):
+def _instantiate_job(jid, status, start, end, pod_ip):
     if type(jid) == str:
         return {'id': jid,
                 'status': status,
@@ -56,6 +56,8 @@ def update_job_status(jid, new_status):
         pod_ip = worker_ip
     elif new_status == 'complete':
         pod_ip = rd.hmget(jid, 'pod_ip')
+    else:
+        pod_ip = 'not_set'
 
     job = _instantiate_job(jid, status, start, end, pod_ip)
     if job:

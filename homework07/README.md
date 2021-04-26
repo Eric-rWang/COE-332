@@ -15,7 +15,7 @@ deployment.apps/ewang-hw7-worker-deployment created
 ```
 To make a POST request with curl and the expected output.
 ```
-$ curl -X POST -H "content-type: application/json" -d '{"start":"1", "end":"2"}' 10.244.15.238:5000/jobs
+$ curl -X POST -H "content-type: application/json" -d '{"start":"1", "end":"2"}' 10.244.15.253:5000/jobs
 {"id": "3924d089-e8d5-42ee-8ceb-cec5b413f81f", "status": "submitted", "start": "1", "end": "2"}
 ```
 To check that the job went to completion, exec into a k8 pod and run python.
