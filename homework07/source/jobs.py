@@ -14,7 +14,7 @@ def _generate_jid():
 def _generate_job_key(jid):
     return 'job.{}'.format(jid)
 
-def _instantiate_job(jid, status, start, end, pod_ip):
+def _instantiate_job(jid, status, start, end, pod_ip='not_set'):
     if type(jid) == str:
         return {'id': jid,
                 'status': status,
@@ -49,15 +49,13 @@ def add_job(start, end, status="submitted"):
 
 def update_job_status(jid, new_status):
     """Update the status of job with job id `jid` to status `status`."""
-    jid, status, start, end = rd.hmget(_generate_job_key(jid), 'id', 'status', 'start', 'end')
+    jid, status, start, end, pod_ip = rd.hmget(_generate_job_key(jid), 'id', 'status', 'start', 'end', 'pod_ip')
 
     # if it is in progess, assign worker ip, else do not, just read it from database.
     if new_status == 'in progress':
         pod_ip = worker_ip
     elif new_status == 'complete':
         pod_ip = rd.hmget(jid, 'pod_ip')
-    else:
-        pod_ip = 'not_set'
 
     job = _instantiate_job(jid, status, start, end, pod_ip)
     if job:
