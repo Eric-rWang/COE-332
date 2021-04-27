@@ -3,6 +3,7 @@ import time, os
 from jobs import q, update_job_status
 
 worker_ip = os.environ.get('WORKER_IP')
+print(worker_ip)
 
 @q.worker
 def execute_job(jid):
