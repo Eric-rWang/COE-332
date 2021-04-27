@@ -1,12 +1,10 @@
 # worker.py
-import time, os
+import time
 from jobs import q, update_job_status
-
-worker_ip = os.environ.get('WORKER_IP')
 
 @q.worker
 def execute_job(jid):
-    update_job_status(jid, "in progress", worker_ip)
+    update_job_status(jid, "in progress")
     time.sleep(15)
     update_job_status(jid, "complete")
 
